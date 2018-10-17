@@ -1,0 +1,29 @@
+{
+	"name": "xiaozhuangyuan/Srouter",
+	"description": "Simple PHP router class.",
+	"license": "MIT",
+	"homepage": "https://github.com/xiaozhuangyuan/Srouter.git",
+	"keywords": [
+		"router",
+		"simple-router",
+		"php-router",
+		"php"
+	],
+	"authors": [
+		{
+			"name": "Zhuang Yuan",
+			"email": "2802485121@qq.com",
+			"homepage": "https://github.com/xiaozhuangyuan/"
+		}
+	],
+	"require": {
+		"php": ">=5.3.3"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^4.8-stable",
+		"guzzle/guzzle": "~3.9"
+	},
+	"autoload": {
+		"psr-4": { "Xiaozhuangyuan\\Srouter\\": "./" }
+	}
+}

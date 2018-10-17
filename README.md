@@ -157,11 +157,11 @@ RewriteRule ^(.*)$ index.php?$1 [QSA,L]
 .htaccess(Nginx):
 
 ```
-    location / {
-       if (!-e $request_filename) {
-           rewrite  ^(.*)$  /index.php?s=/$1  last;
-           break;
-       }
+location / {
+    if (!-e $request_filename) {
+        rewrite  ^(.*)$  /index.php?s=/$1  last;
+        break;
     }
+}
 
 ```

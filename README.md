@@ -53,11 +53,11 @@ Srouter::post('/', function() {
 });
 
 Srouter::map(['get','post'],'/', function() {
-  echo 'I'm a GET or POST request!';
+  echo 'I can be both a GET and a POST request!';
 });
 
 Srouter::any('/', function() {
-  echo 'I can be both a GET and a POST request!';
+  echo 'I can be any request!';
 });
 
 Srouter::dispatch();

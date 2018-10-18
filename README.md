@@ -144,22 +144,22 @@ composer.json:
 .htaccess(Apache):
 
 ```
+Options +FollowSymlinks -Multiviews
 RewriteEngine On
-RewriteBase /
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+RewriteRule ^.*$ index.php [L]
 ```
 
-.htaccess(Nginx):
+Nginx:
 
 ```
 location / {
     if (!-e $request_filename) {
-        rewrite  ^(.*)$  /index.php?s=/$1  last;
+        rewrite  ^.*$  /index.php last;
         break;
     }
 }

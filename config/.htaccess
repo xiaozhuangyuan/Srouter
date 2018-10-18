@@ -1,5 +1,5 @@
+Options +FollowSymlinks -Multiviews
 RewriteEngine On
-RewriteBase /srouter
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

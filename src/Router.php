@@ -5,7 +5,7 @@ namespace Xiaozhuangyuan\Srouter;
 class Router
 {
 
-    public static $patterns = array(
+    private static $patterns = array(
         ':any' => '[^/]+',
         ':num' => '[0-9]+',
         ':all' => '.*'
@@ -19,8 +19,9 @@ class Router
 
     /**
      * @param string $prefix
-     * @param Closure $callback
+     * @param \Closure $callback
      * @param array $middleware
+     * @param array $opts
      */
     public function group(string $prefix, \Closure $callback, array $middleware = [], array $opts = [])
     {
@@ -46,6 +47,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -57,6 +59,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -68,6 +71,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -79,6 +83,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -90,6 +95,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -98,9 +104,10 @@ class Router
         $this->addRoute(['options'], $path, $middleware, $handler, $binds, $opts);
     }
 
-    /**\
+    /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -112,6 +119,7 @@ class Router
     /**
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -124,6 +132,7 @@ class Router
      * @param array $methods
      * @param string $path
      * @param $handler
+     * @param array $middleware
      * @param array $binds
      * @param array $opts
      */
@@ -134,7 +143,8 @@ class Router
 
     /**
      * @param array $methods
-     * @param string $route
+     * @param string $path
+     * @param array $middleware
      * @param $handler
      * @param array $binds
      * @param array $opts

@@ -160,7 +160,7 @@ class Router
             ];
         } else {
             //methods is not intersect
-            if (empty(array_intersect(array_map('strtoupper', $methods)))) {
+            if (empty(array_intersect(array_map('strtoupper', $methods), $this->routes[$route]['method']))) {
                 $hasIntersect = false;
                 if (isset($this->routes[$route]['other'])) {
                     foreach ($this->routes[$route]['other'] as $key => $routeInfo) {

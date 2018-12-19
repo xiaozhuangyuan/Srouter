@@ -124,6 +124,99 @@ class Test {
 }
 ```
 
+Advanced Usage
+
+index.php:
+
+```php
+require('vendor/autoload.php');
+
+use Xiaozhuangyuan\Srouter\Router;
+
+$router = new Router();
+
+$router->group('/v1', function () use ($router) {
+
+    $router->group('', function () use($router) {
+        $router->get('', 'app\controllers\Demo@index', ['Check']);
+    });
+
+    $router->any('/nasad', 'app\controllers\Demo@index');
+
+    $router->map(['get', 'post'], '/page', 'app\controllers\Demo@page');
+
+    $router->get('/view/(:num)', 'app\controllers\Demo@view');
+
+    $router->get('/pi', 'app\controllers\Demo@pi');
+
+    $router->get('/db', 'app\controllers\Demo@db');
+
+    $router->get('/log', 'app\controllers\Demo@log');
+
+    $router->get('/cache', 'app\controllers\Demo@cache');
+
+    $router->group('/user', function ($router) {
+        $router->get('/info', 'app\controllers\Demo@index');
+
+        $router->group('/user122', function ($router) {
+            $router->get('/info', 'app\controllers\Demo@index');
+        }, ['PK']);
+    }, ['Check']);
+
+    $router->get('/qwwasas', 'app\controllers\Sms@qwqw');
+
+}, ['Auth']);
+
+$router->dispatch();
+```
+
+Test.php:
+
+```php
+<?php
+namespace app\controllers;
+
+class Test {
+
+    public function index()
+    {
+        echo 'home';
+    }
+
+    public function page()
+    {
+        echo 'page';
+    }
+
+    public function view($id)
+    {
+        echo $id;
+    }
+
+}
+```
+Middleware
+
+Auth.php:
+
+```php
+<?php
+namespace app\middleware;
+use Xiaozhuangyuan\Srouter\Middleware;
+
+class Auth implements Middleware
+{
+    public function handle()
+    {
+
+        return true;
+
+    }
+}
+```
+
+
+
 This is with Srouter installed via composer.
 
 composer.json:

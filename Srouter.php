@@ -9,6 +9,7 @@ namespace Xiaozhuangyuan\Srouter;
  * @method static Srouter delete(string $route, Callable $callback)
  * @method static Srouter options(string $route, Callable $callback)
  * @method static Srouter head(string $route, Callable $callback)
+ * @method static Srouter map(array $methods, string $path, Callable $callback)
  */
 class Srouter
 {
